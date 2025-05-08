@@ -21,8 +21,8 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         port: 22
         script: |
-          cd /var/www/html/todo-backend || exit 1
-          git fetch origin
-          git reset --hard origin/main
-          npm install --production
-          pm2 restart backend || pm2 start npm --name "backend" -- start
+            cd /var/www/html/todo-backend || exit 1
+            sudo git fetch origin
+            sudo git reset --hard origin/main
+            sudo npm install --production
+            sudo pm2 restart backend || sudo pm2 start npm --name "backend" -- start
