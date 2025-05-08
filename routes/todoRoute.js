@@ -89,7 +89,7 @@ router.get('/', async (req, res) => {
   try {
     const todos = await Todo.find().sort({ createdAt: -1 });
     if (!todos || todos.length === 0) {
-      return res.status(404).json({ message: 'No todos found sorry jee' });
+      return res.status(200).json({ message: 'No todos found sorry jee' });
     }
     res.status(200).json({message: 'Todos retrieved successfully & updated', todos });
 
