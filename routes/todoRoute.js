@@ -88,7 +88,9 @@ const Todo = require('../models/Todo');
 router.get('/', async (req, res) => {
   try {
     const todos = await Todo.find().sort({ createdAt: -1 });
+    console.log('Todos retrieved successfully:', todos);
     res.status(200).json(todos);
+
   } catch (error) {
     console.error('Error fetching todos:', error);
     res.status(500).json({ error: 'Failed to retrieve todos' });
