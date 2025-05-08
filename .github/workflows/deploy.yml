@@ -19,8 +19,10 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_KEY }}
+        port: 22
         script: |
-          cd /var/www/html/todo-backend
-          git pull origin main
-          npm install
+          cd /var/www/html/todo-backend || exit 1
+          git fetch origin
+          git reset --hard origin/main
+          npm install --production
           pm2 restart backend || pm2 start npm --name "backend" -- start

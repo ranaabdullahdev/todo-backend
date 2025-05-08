@@ -91,7 +91,7 @@ router.get('/', async (req, res) => {
     if (!todos || todos.length === 0) {
       return res.status(404).json({ error: 'No todos found' });
     }
-    res.status(200).json({message: 'Todos retrieved successfully', todos });
+    res.status(200).json({message: 'Todos retrieved successfully & updated', todos });
 
   } catch (error) {
     console.error('Error fetching todos:', error);
