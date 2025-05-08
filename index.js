@@ -28,7 +28,7 @@ const specs = swaggerJsDoc(options);
 
 const app = express();
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT ;
 
 // Connect DB
 connectDB();
