@@ -88,7 +88,9 @@ const Todo = require('../models/Todo');
 router.get('/', async (req, res) => {
   try {
     const todos = await Todo.find().sort({ createdAt: -1 });
-    console.log('Todos retrieved successfully:', todos);
+    if (!todos || todos.length === 0) {
+      return res.status(404).json({ error: 'No todos found' });
+    }
     res.status(200).json(todos);
 
   } catch (error) {
